@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LCM Calculator</title>
+  </head>
+  <body>
+    <p>Time calc</p>
+    <h4 id="target"></h4>
+    <h3>Target Date and Time</h3>
+    <form>
+      <input type="number" placeholder="Enter Date" id="date" />
+      <input type="number" placeholder="Enter Time in Hours" id="time_hr" />
+      <input type="number" placeholder="Enter Time in Minutes" id="time_min" />
+    </form>
+    <script>
+      function timer() {
+        let today = new Date();
+        let day1 = today.getDate();
+        let day2 = 18;
+
+        console.log(day1);
+        let hour = today.getHours();
+        let min = today.getMinutes();
+        let sec = today.getSeconds();
+        let t_day = document.getElementById("date").value;
+        let t_hour = document.getElementById("time_hr").value;
+        let t_min = document.getElementById("time_min").value;
+        let t_sec = 0;
+        let day_rem = Math.abs(day1 - t_day);
+        let hr_rem = Math.abs(hour - t_hour);
+        let min_rem = Math.abs(min - t_min);
+        let sec_rem = Math.abs(sec - t_sec);
+        document.getElementById("target").innerText =
+          day_rem - 1 + " Days " + hr_rem + ":" + min_rem + ":" + sec_rem;
+      }
+      timer();
+      setInterval(timer, 1000);
+    </script>
+  </body>
+</html>
